@@ -1,5 +1,7 @@
+import {AbsoluteFill} from 'remotion';
 import styled from 'styled-components';
 import {Card} from './Card';
+import {CheckCheckerboard} from './CheckCheckerboard';
 
 const Title = styled.div`
 	font-family: ---apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -7,7 +9,7 @@ const Title = styled.div`
 	font-weight: 700;
 	font-size: 120px;
 	color: white;
-	background: linear-gradient(to right, #6ab04c, #badc58);
+	background: linear-gradient(to right, #fff, #eee);
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	background-clip: text;
@@ -15,15 +17,23 @@ const Title = styled.div`
 	-moz-text-fill-color: transparent;
 	text-fill-color: transparent;
 	text-align: center;
-	line-height: 1.1;
+	line-height: 1;
 `;
 
 export const TestsAdded: React.FC = () => {
 	return (
-		<Card>
+		<Card
+			style={{
+				background: 'linear-gradient(to right,#1abc9c, #16a085)',
+				position: 'relative',
+			}}
+		>
+			<AbsoluteFill style={{overflow: 'hidden'}}>
+				<CheckCheckerboard />
+			</AbsoluteFill>
 			<Title>
-				150
-				<div style={{fontSize: 50}}>tests added</div>
+				<div style={{fontWeight: 800}}>150</div>
+				<div style={{fontSize: 40}}>tests added</div>
 			</Title>
 		</Card>
 	);
