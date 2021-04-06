@@ -7,7 +7,7 @@ const Title = styled.div`
 	font-weight: 700;
 	font-size: 60px;
 	color: white;
-	background: linear-gradient(to right, #6ab04c, #badc58);
+	background: linear-gradient(to right, #000, #555);
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	background-clip: text;

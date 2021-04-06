@@ -8,7 +8,7 @@ const Title = styled.div`
 	font-family: ---apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
 		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-weight: 700;
-	font-size: 150px;
+	font-size: 110px;
 	color: white;
 	line-height: 0.8;
 	text-shadow: 0 0 50px black;
@@ -35,7 +35,9 @@ export const GifSupport: React.FC = () => {
 					textAlign: 'center',
 				}}
 			>
-				<Title>GIF Support</Title>
+				<Title>
+					<span style={{fontSize: 200}}>GIF</span> Component
+				</Title>
 			</AbsoluteFill>
 		</Card>
 	);

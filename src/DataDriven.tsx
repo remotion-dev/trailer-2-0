@@ -7,7 +7,7 @@ const Title = styled.div`
 	font-weight: 700;
 	font-size: 60px;
 	color: white;
-	background: linear-gradient(to right, #6ab04c, #badc58);
+	background: linear-gradient(to right, #e67e22, #d35400);
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	background-clip: text;
@@ -15,14 +15,14 @@ const Title = styled.div`
 	-moz-text-fill-color: transparent;
 	text-fill-color: transparent;
 	text-align: center;
-	line-height: 1.3;
+	line-height: 1;
 `;
 
 export const DataDriven: React.FC = () => {
 	return (
 		<Card>
 			<Title>
-				<div style={{fontSize: 35}}>data-driven</div>
+				<div style={{fontSize: 35}}>Data-driven</div>
 				video duration
 			</Title>
 		</Card>
