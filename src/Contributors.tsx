@@ -21,6 +21,7 @@ const getAll = () => {
 				{
 					headers: {
 						authorization: btoa(
+							// TODO: revoke
 							`jonnyburger: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`
 						),
 					},
