@@ -16,6 +16,7 @@
 		"@remotion/cli": "1.6.0-alpha.140c9d64",
 		"@remotion/eslint-config": "1.6.0-alpha.140c9d64",
 		"@remotion/gif": "^1.6.0-alpha.656a496e",
+		"@remotion/media-utils": "^1.6.0-alpha.656a496e",
 		"@remotion/renderer": "1.6.0-alpha.140c9d64",
 		"@types/express": "^4.17.9",
 		"@types/react": "^17.0.0",
