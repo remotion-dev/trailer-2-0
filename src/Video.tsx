@@ -3,9 +3,11 @@ import {useEffect, useState} from 'react';
 import {Composition, continueRender, delayRender} from 'remotion';
 import {AudioDemo} from './AudioDemo';
 import {Contributors} from './Contributors';
+import {Intro} from './Intro';
 import {Master} from './Master';
 import {OtherFeatures} from './OtherFeatures';
 import {ResizableFull} from './ResizableFull';
+import {Showcase} from './Showcase';
 import voiceover from './voiceover.wav';
 
 export const RemotionVideo: React.FC = () => {
@@ -69,6 +71,24 @@ export const RemotionVideo: React.FC = () => {
 				id="master"
 				component={Master}
 				durationInFrames={Math.floor(length * 30)}
+				fps={30}
+				width={1920}
+				height={1080}
+				defaultProps={{}}
+			/>
+			<Composition
+				id="intro"
+				component={Intro}
+				durationInFrames={300}
+				fps={30}
+				width={1920}
+				height={1080}
+				defaultProps={{}}
+			/>
+			<Composition
+				id="showcase"
+				component={Showcase}
+				durationInFrames={300}
 				fps={30}
 				width={1920}
 				height={1080}
