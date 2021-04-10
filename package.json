@@ -26,7 +26,7 @@
 		"prettier": "^2.2.1",
 		"prettier-plugin-organize-imports": "^1.1.1",
 		"react": "^17.0.1",
-		"remotion": "1.6.0-alpha.83ef8f93",
+		"remotion": "1.6.0-alpha.70b89f74",
 		"speech-synthesis-recorder": "^1.2.1",
 		"styled-components": "^5.2.3",
 		"ts-node": "^9.1.1",

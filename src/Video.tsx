@@ -2,6 +2,7 @@ import {getAudioDuration} from '@remotion/media-utils';
 import {useEffect, useState} from 'react';
 import {Composition, continueRender, delayRender} from 'remotion';
 import {AudioDemo} from './AudioDemo';
+import {AudioFeatures} from './AudioFeatures';
 import {Contributors} from './Contributors';
 import {Intro} from './Intro';
 import {Master} from './Master';
@@ -93,6 +94,14 @@ export const RemotionVideo: React.FC = () => {
 				width={1920}
 				height={1080}
 				defaultProps={{}}
+			/>
+			<Composition
+				id="audio-features"
+				component={AudioFeatures}
+				durationInFrames={300}
+				fps={30}
+				width={1920}
+				height={1080}
 			/>
 		</>
 	);
