@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
 import styled from 'styled-components';
+import {AudioTagTimeline} from './AudioTagTimeline';
 import {Card} from './Card';
 import {CutAndTrim} from './CutAndTrim';
 
@@ -37,7 +38,9 @@ export const AudioFeatures: React.FC = () => {
 					</div>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
 						<Card>Remote audio</Card>
-						<Card>Timeline visualization</Card>
+						<Card>
+							<AudioTagTimeline />
+						</Card>
 						<Card>Support for `muted` property</Card>
 					</div>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>

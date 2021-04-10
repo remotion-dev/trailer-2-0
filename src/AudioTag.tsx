@@ -2,7 +2,8 @@ import React from 'react';
 import {random, useVideoConfig} from 'remotion';
 import styled from 'styled-components';
 
-const AUDIO_GRADIENT = 'linear-gradient(rgb(16 171 58), rgb(43 165 63) 60%)';
+export const AUDIO_GRADIENT =
+	'linear-gradient(rgb(16 171 58), rgb(43 165 63) 60%)';
 
 const Tag = styled.div`
 	background: ${AUDIO_GRADIENT};
