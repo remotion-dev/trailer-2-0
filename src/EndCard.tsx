@@ -53,7 +53,6 @@ export const EndCard: React.FC = () => {
 	const PADDING = 40;
 	const SPACING = 30;
 	const PANEL_WIDTH = (width - PADDING * 2 - SPACING) / 2;
-	const BIG_PANEL_HEIGHT = height - PADDING * 2;
 	const SMALL_PANEL_HEIGHT = (height - PADDING * 2 - SPACING) / 2;
 	const frame = useCurrentFrame();
 	const progress = (i: number) =>

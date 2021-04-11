@@ -1,5 +1,11 @@
 import React from 'react';
-import {AbsoluteFill, useVideoConfig} from 'remotion';
+import {
+	AbsoluteFill,
+	interpolate,
+	spring,
+	useCurrentFrame,
+	useVideoConfig,
+} from 'remotion';
 import styled from 'styled-components';
 import {AudioFormats} from './AudioFormats';
 import {AudioFromVideo} from './AudioFromVideo';
@@ -25,13 +31,38 @@ const Container = styled.div`
 `;
 
 export const AudioFeatures: React.FC = () => {
-	const {width, height} = useVideoConfig();
+	const {width, height, fps, durationInFrames} = useVideoConfig();
+	const frame = useCurrentFrame();
+
+	const progress = (i: number): React.CSSProperties => {
+		const p = spring({
+			fps,
+			frame: frame - i * 5,
+			config: {
+				damping: 100,
+			},
+		});
+		const springOut = spring({
+			fps,
+			frame: frame - durationInFrames + 20 - i * 2,
+			config: {
+				damping: 100,
+			},
+		});
+		return {
+			transform: `translateX(${interpolate(
+				p + springOut,
+				[0, 1],
+				[120, 0]
+			)}px)`,
+			opacity: p - interpolate(springOut, [0, 0.7], [0, 1]),
+		};
+	};
 
 	return (
 		<Outer>
 			<Container
 				style={{
-					backgroundColor: 'white',
 					flex: 1,
 					width,
 					height,
@@ -42,33 +73,41 @@ export const AudioFeatures: React.FC = () => {
 						<Card
 							style={{
 								overflow: 'hidden',
+								...progress(0),
 							}}
 						>
 							<AudioVisualization />
 						</Card>
-						<Card>
+						<Card style={progress(1)}>
 							<AudioFormats />
 						</Card>
 					</div>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
-						<Card>
+						<Card style={progress(1)}>
 							<RemoteAudio />
 						</Card>
-						<Card>
+						<Card style={progress(2)}>
 							<AudioTagTimeline />
 						</Card>
-						<Card style={{display: 'flex', flex: 1, overflow: 'hidden'}}>
+						<Card
+							style={{
+								display: 'flex',
+								flex: 1,
+								overflow: 'hidden',
+								...progress(3),
+							}}
+						>
 							<Muted />
 						</Card>
 					</div>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
-						<Card style={{overflow: 'hidden'}}>
+						<Card style={{overflow: 'hidden', ...progress(3)}}>
 							<AudioFromVideo />
 						</Card>
-						<Card>
+						<Card style={progress(4)}>
 							<CutAndTrim />
 						</Card>
-						<Card>
+						<Card style={progress(5)}>
 							<MediaUtils />
 						</Card>
 					</div>

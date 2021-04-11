@@ -1,5 +1,11 @@
 import React from 'react';
-import {AbsoluteFill, useVideoConfig} from 'remotion';
+import {
+	AbsoluteFill,
+	interpolate,
+	spring,
+	useCurrentFrame,
+	useVideoConfig,
+} from 'remotion';
 import styled from 'styled-components';
 import {DataDriven} from './DataDriven';
 import {ESBuildTranspile} from './ESBuildTranspile';
@@ -27,38 +33,125 @@ const Container = styled.div`
 `;
 
 export const OtherFeatures: React.FC = () => {
-	const {width, height} = useVideoConfig();
+	const {width, height, fps, durationInFrames} = useVideoConfig();
+	const frame = useCurrentFrame();
+	const progress = (i: number): React.CSSProperties => {
+		const p = spring({
+			fps,
+			frame: frame - i * 5,
+			config: {
+				damping: 100,
+			},
+		});
+		const springOut = spring({
+			fps,
+			frame: frame - durationInFrames + 20 - i * 2,
+			config: {
+				damping: 100,
+			},
+		});
+		return {
+			transform: `translateX(${interpolate(
+				p + springOut,
+				[0, 1],
+				[120, 0]
+			)}px)`,
+			opacity: p - interpolate(springOut, [0, 0.7], [0, 1]),
+		};
+	};
 	return (
 		<Outer>
 			<Container style={{width, height}}>
 				<div style={{display: 'flex', flexDirection: 'column', flex: 2}}>
 					<div style={{display: 'flex', flexDirection: 'column', flex: 2}}>
-						<ESBuildTranspile />
+						<div style={{flex: 1, display: 'flex', ...progress(0)}}>
+							<ESBuildTranspile />
+						</div>
 						<div style={{display: 'flex', flexDirection: 'row', flex: 1}}>
-							<RichTimeline />
-							<TestsAdded />
+							<div style={{flex: 1, display: 'flex', ...progress(1)}}>
+								<RichTimeline />
+							</div>
+							<div
+								style={{
+									flex: 1,
+									display: 'flex',
+									...progress(2),
+								}}
+							>
+								<TestsAdded />
+							</div>
 						</div>
 					</div>
 					<div style={{display: 'flex', flexDirection: 'column', flex: 2}}>
-						<PartialRendering />
-						<FramePerfect />
+						<div
+							style={{
+								display: 'flex',
+								flex: 1,
+								...progress(3),
+							}}
+						>
+							<PartialRendering />
+						</div>
+						<div
+							style={{
+								display: 'flex',
+								flex: 1,
+								...progress(4),
+							}}
+						>
+							<FramePerfect />
+						</div>
 					</div>
 				</div>
 				<div style={{display: 'flex', flexDirection: 'column', flex: 3}}>
 					<div style={{display: 'flex', flexDirection: 'row', flex: 1}}>
-						<div style={{display: 'flex', flex: 3}}>
+						<div style={{display: 'flex', flex: 3, ...progress(3)}}>
 							<GifSupport />
 						</div>
 						<div style={{display: 'flex', flexDirection: 'column', flex: 2}}>
-							<Interpolate />
-							<StillFrames />
+							<div
+								style={{
+									display: 'flex',
+									flex: 1,
+									...progress(4),
+								}}
+							>
+								<Interpolate />
+							</div>
+							<div style={{display: 'flex', flex: 1, ...progress(5)}}>
+								<StillFrames />
+							</div>
 						</div>
 					</div>
 					<div style={{display: 'flex', flexDirection: 'row', flex: 1}}>
-						<Resizeable />
+						<div
+							style={{
+								display: 'flex',
+								flex: 1,
+								...progress(4),
+							}}
+						>
+							<Resizeable />
+						</div>
 						<div style={{display: 'flex', flexDirection: 'column', flex: 1}}>
-							<WebpackCaching />
-							<DataDriven />
+							<div
+								style={{
+									display: 'flex',
+									flex: 1,
+									...progress(6),
+								}}
+							>
+								<WebpackCaching />
+							</div>
+							<div
+								style={{
+									display: 'flex',
+									flex: 1,
+									...progress(7),
+								}}
+							>
+								<DataDriven />
+							</div>
 						</div>
 					</div>
 				</div>
