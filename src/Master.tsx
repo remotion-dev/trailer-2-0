@@ -1,17 +1,22 @@
 import React from 'react';
-import {Audio, Sequence} from 'remotion';
+import {Audio, interpolate, Sequence, useVideoConfig} from 'remotion';
 import {AudioDemo} from './AudioDemo';
 import {AudioFeatures} from './AudioFeatures';
 import {AUDIO_FEATURES_START} from './AudioVisualization';
 import {Contributors} from './Contributors';
+import {EndCard} from './EndCard';
+import {END_CARD_LENGTH} from './EndCardLength';
+import {Install} from './Install';
 import {Intro} from './Intro';
 import {OtherFeatures} from './OtherFeatures';
 import {PreviousRelease} from './PreviousRelease';
+import radiostar from './radiostar.mp3';
 import {Showcase} from './Showcase';
 import {TwoPointOh} from './TwoPointOh';
 import voiceover from './voiceover.wav';
 
 export const Master: React.FC = () => {
+	const {durationInFrames} = useVideoConfig();
 	return (
 		<div>
 			<Audio src={voiceover} />
@@ -36,8 +41,26 @@ export const Master: React.FC = () => {
 			<Sequence from={1500} durationInFrames={150}>
 				<PreviousRelease />
 			</Sequence>
-			<Sequence from={1700} durationInFrames={150}>
+			<Sequence from={1700} durationInFrames={220}>
 				<Contributors />
+			</Sequence>
+			<Sequence from={1920} durationInFrames={300}>
+				<Install />
+			</Sequence>
+			<Sequence from={2220} durationInFrames={300}>
+				<EndCard />
+			</Sequence>
+			<Sequence
+				from={durationInFrames - END_CARD_LENGTH - 150}
+				durationInFrames={END_CARD_LENGTH + 150}
+			>
+				<Audio
+					src={radiostar}
+					startAt={10}
+					volume={(f) =>
+						interpolate(f, [30, 150], [0, 1], {extrapolateLeft: 'clamp'})
+					}
+				/>
 			</Sequence>
 		</div>
 	);

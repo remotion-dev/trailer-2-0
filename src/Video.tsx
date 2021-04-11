@@ -5,6 +5,8 @@ import {AudioDemo} from './AudioDemo';
 import {AudioFeatures} from './AudioFeatures';
 import {Contributors} from './Contributors';
 import {Cube} from './Cube';
+import {EndCard} from './EndCard';
+import {END_CARD_LENGTH} from './EndCardLength';
 import {Intro} from './Intro';
 import {Master} from './Master';
 import {OtherFeatures} from './OtherFeatures';
@@ -73,7 +75,7 @@ export const RemotionVideo: React.FC = () => {
 			<Composition
 				id="master"
 				component={Master}
-				durationInFrames={Math.floor(length * 30)}
+				durationInFrames={Math.floor(length * 30) + END_CARD_LENGTH}
 				fps={30}
 				width={1920}
 				height={1080}
@@ -116,6 +118,14 @@ export const RemotionVideo: React.FC = () => {
 			<Composition
 				id="previous-release"
 				component={PreviousRelease}
+				durationInFrames={300}
+				fps={30}
+				width={1920}
+				height={1080}
+			/>
+			<Composition
+				id="endcard"
+				component={EndCard}
 				durationInFrames={300}
 				fps={30}
 				width={1920}
