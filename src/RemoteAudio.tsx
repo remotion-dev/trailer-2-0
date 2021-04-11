@@ -7,7 +7,7 @@ const Title = styled.div`
 	font-weight: 700;
 	font-size: 50px;
 	color: white;
-	background: linear-gradient(to right, #8e44ad, #9b59b6);
+	background: linear-gradient(to right, #75378f, #9b59b6);
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	background-clip: text;
@@ -24,7 +24,7 @@ const Subtitle = styled.div`
 	font-weight: 700;
 	font-size: 20px;
 	color: white;
-	background: linear-gradient(to right, #8e44ad, #9b59b6);
+	background: linear-gradient(to right, #75378f, #9b59b6);
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	background-clip: text;

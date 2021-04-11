@@ -6,7 +6,7 @@ const Title = styled.div`
 	font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
 		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-weight: 700;
-	font-size: 50px;
+	font-size: 60px;
 	color: white;
 	background: linear-gradient(to right, #e67e22, #d35400);
 	-webkit-background-clip: text;
@@ -16,19 +16,16 @@ const Title = styled.div`
 	-moz-text-fill-color: transparent;
 	text-fill-color: transparent;
 	text-align: center;
-	line-height: 1.3;
+	line-height: 1.1;
 `;
 
 export const AudioFormats: React.FC = () => {
 	return (
 		<div style={{textAlign: 'center'}}>
-			<Title>Export as</Title>
-			<br />
-			<br />
 			<Cd />
 			<br />
 			<br />
-			<br />
+			<Title>Export as</Title>
 			<Title>MP3, WAV or AAC</Title>
 		</div>
 	);

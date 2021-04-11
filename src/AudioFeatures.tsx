@@ -2,6 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
 import styled from 'styled-components';
 import {AudioFormats} from './AudioFormats';
+import {AudioFromVideo} from './AudioFromVideo';
 import {AudioTagTimeline} from './AudioTagTimeline';
 import {Card} from './Card';
 import {CutAndTrim} from './CutAndTrim';
@@ -54,7 +55,9 @@ export const AudioFeatures: React.FC = () => {
 						</Card>
 					</div>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
-						<Card>Audio from `Video` tags</Card>
+						<Card style={{overflow: 'hidden'}}>
+							<AudioFromVideo />
+						</Card>
 						<Card>
 							<CutAndTrim />
 						</Card>
