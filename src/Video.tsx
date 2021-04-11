@@ -4,6 +4,7 @@ import {Composition, continueRender, delayRender} from 'remotion';
 import {AudioDemo} from './AudioDemo';
 import {AudioFeatures} from './AudioFeatures';
 import {Contributors} from './Contributors';
+import {Cube} from './Cube';
 import {Intro} from './Intro';
 import {Master} from './Master';
 import {OtherFeatures} from './OtherFeatures';
@@ -102,6 +103,14 @@ export const RemotionVideo: React.FC = () => {
 				fps={30}
 				width={1920}
 				height={1080}
+			/>
+			<Composition
+				id="cube"
+				component={Cube}
+				durationInFrames={300}
+				fps={30}
+				width={400}
+				height={400}
 			/>
 		</>
 	);

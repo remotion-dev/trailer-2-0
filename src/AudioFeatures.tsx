@@ -5,7 +5,9 @@ import {AudioFormats} from './AudioFormats';
 import {AudioTagTimeline} from './AudioTagTimeline';
 import {Card} from './Card';
 import {CutAndTrim} from './CutAndTrim';
+import {MediaUtils} from './MediaUtils';
 import {Muted} from './Muted';
+import {RemoteAudio} from './RemoteAudio';
 
 const Outer = styled(AbsoluteFill)`
 	background-color: white;
@@ -41,7 +43,9 @@ export const AudioFeatures: React.FC = () => {
 						</Card>
 					</div>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
-						<Card>Remote audio</Card>
+						<Card>
+							<RemoteAudio />
+						</Card>
 						<Card>
 							<AudioTagTimeline />
 						</Card>
@@ -54,7 +58,9 @@ export const AudioFeatures: React.FC = () => {
 						<Card>
 							<CutAndTrim />
 						</Card>
-						<Card>`media-utils` helper package</Card>
+						<Card>
+							<MediaUtils />
+						</Card>
 					</div>
 				</div>
 			</Container>
