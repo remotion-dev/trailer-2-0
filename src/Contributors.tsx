@@ -1,6 +1,7 @@
 import {chunk} from 'lodash';
 import React, {useEffect, useState} from 'react';
 import {
+	AbsoluteFill,
 	continueRender,
 	delayRender,
 	interpolate,
@@ -20,9 +21,14 @@ const Title = styled.div`
 	text-align: center;
 	line-height: 1.1;
 	margin-top: 30px;
+	position: absolute;
+	width: 100%;
 `;
 
 const getAll = () => {
+	if (cache) {
+		return Promise.resolve(cache as any[]);
+	}
 	return Promise.all(
 		[1, 2, 3, 4, 5, 6].map((_, i) => {
 			return fetch(
@@ -41,6 +47,9 @@ const getAll = () => {
 	);
 };
 
+let cache: any = null;
+const delay = 65;
+
 export const Contributors: React.FC = () => {
 	const [handle] = useState(() => delayRender());
 	const [data, setData] = useState(null);
@@ -53,6 +62,7 @@ export const Contributors: React.FC = () => {
 				return (datas as any[]).flat(1);
 			})
 			.then((res) => {
+				cache = res;
 				setData(res);
 				continueRender(handle);
 			});
@@ -86,52 +96,77 @@ export const Contributors: React.FC = () => {
 
 	const chunks = chunk(sortByCounts, 7);
 
+	const startAnimation = spring({
+		frame: frame - delay,
+		fps,
+		config: {
+			damping: 200,
+		},
+	});
+
+	const fontSize = interpolate(startAnimation, [0, 1], [300, 110], {
+		extrapolateLeft: 'clamp',
+		extrapolateRight: 'clamp',
+	});
+
 	return (
-		<div
+		<AbsoluteFill
 			style={{
 				backgroundColor: 'white',
-				flex: 1,
 			}}
 		>
-			<Title>Thank you</Title>
 			<div
 				style={{
-					display: 'flex',
-					flexDirection: 'row',
-					justifyContent: 'center',
 					flex: 1,
-					marginTop: 20,
-					marginLeft: 90,
 				}}
 			>
-				{chunks.map((chunk, chunkI) => {
-					return (
-						<div>
-							{chunk.map((user, i) => {
-								const progress = spring({
-									fps,
-									frame: frame - (i + chunkI * 7) / 2,
-									config: {
-										damping: 100,
-									},
-								});
-								const p = interpolate(progress, [0, 1], [1000, 0]);
-								return (
-									<SingleContributor
-										avatar={avatars[user]}
-										commits={counts[user]}
-										name={user}
-										style={{
-											transform: `translateY(${p}px)`,
-											opacity: progress,
-										}}
-									/>
-								);
-							})}
-						</div>
-					);
-				})}
+				<Title
+					style={{
+						fontSize,
+						marginTop: interpolate(startAnimation, [0, 1], [320, 25]),
+					}}
+				>
+					Thank you
+				</Title>
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'row',
+						justifyContent: 'center',
+						flex: 1,
+						marginTop: 160,
+						marginLeft: 90,
+					}}
+				>
+					{chunks.map((chunk, chunkI) => {
+						return (
+							<div>
+								{chunk.map((user, i) => {
+									const progress = spring({
+										fps,
+										frame: frame - delay - (i + chunkI * 7) / 2,
+										config: {
+											damping: 100,
+										},
+									});
+									const p = interpolate(progress, [0, 1], [1000, 0]);
+									return (
+										<SingleContributor
+											avatar={avatars[user]}
+											commits={counts[user]}
+											name={user}
+											style={{
+												transform: `translateY(${p}px)`,
+												opacity: progress,
+											}}
+										/>
+									);
+								})}
+							</div>
+						);
+					})}
+				</div>
 			</div>
-		</div>
+		</AbsoluteFill>
 	);
 };

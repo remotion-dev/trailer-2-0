@@ -12,10 +12,11 @@ import {OtherFeatures} from './OtherFeatures';
 import {PreviousRelease} from './PreviousRelease';
 import radiostar from './radiostar.mp3';
 import {Showcase} from './Showcase';
+import {Transition} from './Transition';
 import {TwoPointOh} from './TwoPointOh';
 import voiceover from './voiceover.wav';
 
-export const Master: React.FC = () => {
+export const Main: React.FC = () => {
 	const {durationInFrames} = useVideoConfig();
 	return (
 		<div>
@@ -38,14 +39,18 @@ export const Master: React.FC = () => {
 			<Sequence from={1200} durationInFrames={300}>
 				<OtherFeatures />
 			</Sequence>
-			<Sequence from={1500} durationInFrames={150}>
+			<Sequence from={1500} durationInFrames={170}>
 				<PreviousRelease />
 			</Sequence>
-			<Sequence from={1650} durationInFrames={270}>
-				<Contributors />
+			<Sequence from={1630} durationInFrames={300}>
+				<Transition type="in">
+					<Contributors />
+				</Transition>
 			</Sequence>
-			<Sequence from={1920} durationInFrames={300}>
-				<Install />
+			<Sequence from={1900} durationInFrames={320}>
+				<Transition type="in">
+					<Install />
+				</Transition>
 			</Sequence>
 			<Sequence from={2220} durationInFrames={300}>
 				<EndCard />

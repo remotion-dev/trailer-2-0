@@ -24,7 +24,6 @@ export const Hype: React.FC = () => {
 				backgroundColor: 'white',
 				display: 'inline-block',
 				position: 'relative',
-				opacity: 0.7,
 			}}
 		>
 			<div

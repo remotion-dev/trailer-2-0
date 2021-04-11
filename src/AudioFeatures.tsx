@@ -37,7 +37,7 @@ export const AudioFeatures: React.FC = () => {
 	const progress = (i: number): React.CSSProperties => {
 		const p = spring({
 			fps,
-			frame: frame - i * 5,
+			frame: frame - i * 8 - 20,
 			config: {
 				damping: 100,
 			},

@@ -9,7 +9,7 @@ import {EndCard} from './EndCard';
 import {END_CARD_LENGTH} from './EndCardLength';
 import {Hype} from './Hype';
 import {Intro} from './Intro';
-import {Master} from './Master';
+import {Main} from './Main';
 import {OtherFeatures} from './OtherFeatures';
 import {PreviousRelease} from './PreviousRelease';
 import {ResizableFull} from './ResizableFull';
@@ -74,8 +74,8 @@ export const RemotionVideo: React.FC = () => {
 				defaultProps={{}}
 			/>
 			<Composition
-				id="master"
-				component={Master}
+				id="main"
+				component={Main}
 				durationInFrames={Math.floor(length * 30) + END_CARD_LENGTH}
 				fps={30}
 				width={1920}

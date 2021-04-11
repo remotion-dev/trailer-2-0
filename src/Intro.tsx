@@ -13,12 +13,12 @@ const Container = styled.div`
 `;
 
 const Tweet = styled(Img)`
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 `;
 
 export const Intro: React.FC = () => {
 	const frame = useCurrentFrame();
-	const scale = interpolate(frame, [0, 190], [0.8, 1], {
+	const scale = interpolate(frame, [0, 190], [0.9, 1.3], {
 		extrapolateRight: 'clamp',
 	});
 	return (
