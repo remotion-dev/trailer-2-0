@@ -6,7 +6,7 @@ const Title = styled.div`
 	font-family: ---apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
 		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-weight: 700;
-	font-size: 40px;
+	font-size: 36px;
 	color: black;
 	line-height: 1.1;
 `;
@@ -24,7 +24,8 @@ export const SingleContributor: React.FC<{
 	commits: number;
 	name: string;
 	avatar: string;
-}> = ({commits, name, avatar}) => {
+	style: React.CSSProperties;
+}> = ({commits, name, avatar, style}) => {
 	return (
 		<div
 			style={{
@@ -34,10 +35,12 @@ export const SingleContributor: React.FC<{
 				alignItems: 'center',
 				marginTop: 20,
 				marginBottom: 20,
+				width: 450,
+				...style,
 			}}
 		>
 			<Img
-				style={{height: 100, width: 100, borderRadius: 10, marginRight: 30}}
+				style={{height: 100, width: 100, borderRadius: 10, marginRight: 15}}
 				src={avatar}
 			/>
 			<div>
