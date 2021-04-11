@@ -1,4 +1,5 @@
 import React from 'react';
+import {useCurrentFrame} from 'remotion';
 import styled from 'styled-components';
 import {AUDIO_GRADIENT} from './AudioTag';
 
@@ -31,6 +32,8 @@ const audioStyle: React.CSSProperties = {
 };
 
 export const AudioTagTimeline: React.FC = () => {
+	const frame = useCurrentFrame();
+	const offset = Math.sin(frame / 20) * 40;
 	return (
 		<div
 			style={{
@@ -44,39 +47,24 @@ export const AudioTagTimeline: React.FC = () => {
 			<div
 				style={{
 					...audioStyle,
+					height: 30,
 					position: 'absolute',
-					marginTop: -90,
+					marginTop: -120,
 					opacity: 0.8,
-					transform: `scale(0.9)`,
+					transform: `scale(0.9) translateX(${offset * -1}px)`,
 				}}
 			/>
 			<div
 				style={{
 					...audioStyle,
+					height: 30,
 					position: 'absolute',
-					marginTop: 90,
+					marginTop: 120,
 					opacity: 0.8,
-					transform: `scale(0.9)`,
+					transform: `scale(0.9) translateX(${offset}px)`,
 				}}
 			/>
-			<div
-				style={{
-					...audioStyle,
-					position: 'absolute',
-					marginTop: -180,
-					opacity: 0.8,
-					transform: `scale(0.82)`,
-				}}
-			/>
-			<div
-				style={{
-					...audioStyle,
-					position: 'absolute',
-					marginTop: 180,
-					opacity: 0.8,
-					transform: `scale(0.82)`,
-				}}
-			/>
+
 			<div style={audioStyle}>
 				<Title>Timeline visualization</Title>
 			</div>

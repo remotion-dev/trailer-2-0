@@ -1,9 +1,11 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
 import styled from 'styled-components';
+import {AudioFormats} from './AudioFormats';
 import {AudioTagTimeline} from './AudioTagTimeline';
 import {Card} from './Card';
 import {CutAndTrim} from './CutAndTrim';
+import {Muted} from './Muted';
 
 const Outer = styled(AbsoluteFill)`
 	background-color: white;
@@ -34,14 +36,18 @@ export const AudioFeatures: React.FC = () => {
 				<div style={{display: 'flex', flexDirection: 'row', flex: 1}}>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
 						<Card>Audio visualization APIs</Card>
-						<Card>Export to MP3, AAC, WAV</Card>
+						<Card>
+							<AudioFormats />
+						</Card>
 					</div>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
 						<Card>Remote audio</Card>
 						<Card>
 							<AudioTagTimeline />
 						</Card>
-						<Card>Support for `muted` property</Card>
+						<Card style={{display: 'flex', flex: 1, overflow: 'hidden'}}>
+							<Muted />
+						</Card>
 					</div>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
 						<Card>Audio from `Video` tags</Card>
