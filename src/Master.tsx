@@ -1,6 +1,8 @@
 import React from 'react';
 import {Audio, Sequence} from 'remotion';
 import {AudioDemo} from './AudioDemo';
+import {AudioFeatures} from './AudioFeatures';
+import {AUDIO_FEATURES_START} from './AudioVisualization';
 import {Intro} from './Intro';
 import {OtherFeatures} from './OtherFeatures';
 import {Showcase} from './Showcase';
@@ -22,6 +24,9 @@ export const Master: React.FC = () => {
 			</Sequence>
 			<Sequence from={503} durationInFrames={400}>
 				<AudioDemo />
+			</Sequence>
+			<Sequence from={AUDIO_FEATURES_START} durationInFrames={297}>
+				<AudioFeatures />
 			</Sequence>
 			<Sequence from={1200} durationInFrames={400}>
 				<OtherFeatures />

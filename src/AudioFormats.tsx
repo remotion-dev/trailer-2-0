@@ -25,7 +25,7 @@ export const AudioFormats: React.FC = () => {
 			<Cd />
 			<br />
 			<br />
-			<Title>Export as</Title>
+			<Title style={{fontSize: 40}}>Export as</Title>
 			<Title>MP3, WAV or AAC</Title>
 		</div>
 	);

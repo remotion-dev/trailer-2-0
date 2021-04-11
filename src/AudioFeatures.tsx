@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {AudioFormats} from './AudioFormats';
 import {AudioFromVideo} from './AudioFromVideo';
 import {AudioTagTimeline} from './AudioTagTimeline';
+import {AudioVisualization} from './AudioVisualization';
 import {Card} from './Card';
 import {CutAndTrim} from './CutAndTrim';
 import {MediaUtils} from './MediaUtils';
@@ -38,7 +39,13 @@ export const AudioFeatures: React.FC = () => {
 			>
 				<div style={{display: 'flex', flexDirection: 'row', flex: 1}}>
 					<div style={{flex: 1, display: 'flex', flexDirection: 'column'}}>
-						<Card>Audio visualization APIs</Card>
+						<Card
+							style={{
+								overflow: 'hidden',
+							}}
+						>
+							<AudioVisualization />
+						</Card>
 						<Card>
 							<AudioFormats />
 						</Card>
