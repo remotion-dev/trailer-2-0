@@ -7,6 +7,7 @@ import {Contributors} from './Contributors';
 import {Cube} from './Cube';
 import {EndCard} from './EndCard';
 import {END_CARD_LENGTH} from './EndCardLength';
+import {Hype} from './Hype';
 import {Intro} from './Intro';
 import {Master} from './Master';
 import {OtherFeatures} from './OtherFeatures';
@@ -130,6 +131,14 @@ export const RemotionVideo: React.FC = () => {
 				fps={30}
 				width={1920}
 				height={1080}
+			/>
+			<Composition
+				id="hype"
+				component={Hype}
+				durationInFrames={300}
+				fps={30}
+				width={400}
+				height={400}
 			/>
 		</>
 	);

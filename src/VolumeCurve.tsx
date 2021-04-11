@@ -28,7 +28,6 @@ export const VolumeCurve: React.FC<{
 			} else {
 				context.lineTo(x, y);
 			}
-			console.log(x, y);
 		});
 		context.lineWidth = 3;
 		context.strokeStyle = 'rgba(255, 255, 255, 0.7)';

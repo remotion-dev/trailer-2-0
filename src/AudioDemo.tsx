@@ -1,12 +1,18 @@
 import React from 'react';
-import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {
+	AbsoluteFill,
+	interpolate,
+	spring,
+	useCurrentFrame,
+	useVideoConfig,
+} from 'remotion';
 import {AudioTag} from './AudioTag';
 
 export const AudioDemo: React.FC = () => {
 	const frame = useCurrentFrame();
 	const {fps, durationInFrames} = useVideoConfig();
 	const progress = spring({
-		frame: frame - 30,
+		frame: frame - 10,
 		fps,
 		config: {
 			damping: 200,
@@ -89,6 +95,12 @@ export const AudioDemo: React.FC = () => {
 		return interpolate(volumeCustom, [0, 1], [volumeSpring * 0.3, wave]);
 	};
 
+	const overlay = interpolate(
+		frame,
+		[durationInFrames - 30, durationInFrames - 5],
+		[0, 1]
+	);
+
 	return (
 		<div
 			style={{
@@ -131,6 +143,9 @@ export const AudioDemo: React.FC = () => {
 				scale={otherScale}
 				volume={volume3}
 			/>
+			<AbsoluteFill style={{backgroundColor: 'white', opacity: overlay}}>
+				<AbsoluteFill style={{backgroundColor: 'rgba(0, 0, 0, 0.04)'}} />
+			</AbsoluteFill>
 		</div>
 	);
 };

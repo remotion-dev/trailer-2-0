@@ -29,10 +29,10 @@ export const Master: React.FC = () => {
 			<Sequence from={389} durationInFrames={114}>
 				<TwoPointOh />
 			</Sequence>
-			<Sequence from={503} durationInFrames={400}>
+			<Sequence from={503} durationInFrames={430}>
 				<AudioDemo />
 			</Sequence>
-			<Sequence from={AUDIO_FEATURES_START} durationInFrames={297}>
+			<Sequence from={AUDIO_FEATURES_START} durationInFrames={267}>
 				<AudioFeatures />
 			</Sequence>
 			<Sequence from={1200} durationInFrames={300}>
@@ -41,7 +41,7 @@ export const Master: React.FC = () => {
 			<Sequence from={1500} durationInFrames={150}>
 				<PreviousRelease />
 			</Sequence>
-			<Sequence from={1700} durationInFrames={220}>
+			<Sequence from={1650} durationInFrames={270}>
 				<Contributors />
 			</Sequence>
 			<Sequence from={1920} durationInFrames={300}>

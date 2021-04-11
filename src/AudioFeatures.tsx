@@ -19,7 +19,7 @@ import {RemoteAudio} from './RemoteAudio';
 
 const Outer = styled(AbsoluteFill)`
 	background-color: white;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	top: 0;
 `;
 
 const Container = styled.div`

@@ -21,7 +21,7 @@ const Title = styled.div`
 	line-height: 1.1;
 `;
 
-export const AUDIO_FEATURES_START = 903;
+export const AUDIO_FEATURES_START = 933;
 
 export const AudioVisualization: React.FC = () => {
 	const {fps} = useVideoConfig();

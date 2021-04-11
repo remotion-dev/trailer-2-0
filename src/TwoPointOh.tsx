@@ -19,7 +19,7 @@ const Subtitle = styled.div`
 `;
 
 export const TwoPointOh: React.FC = () => {
-	const {fps} = useVideoConfig();
+	const {fps, durationInFrames} = useVideoConfig();
 	const frame = useCurrentFrame();
 	const scale = spring({
 		frame,
@@ -27,6 +27,15 @@ export const TwoPointOh: React.FC = () => {
 		config: {damping: 200, mass: 0.7},
 	});
 	const opacity = interpolate(frame, [50, 60], [0, 1]);
+	const textOpacity = interpolate(
+		frame,
+		[durationInFrames - 10, durationInFrames],
+		[1, 0],
+		{
+			extrapolateLeft: 'clamp',
+			extrapolateRight: 'clamp',
+		}
+	);
 	return (
 		<div
 			style={{
@@ -39,8 +48,14 @@ export const TwoPointOh: React.FC = () => {
 				lineHeight: 1,
 			}}
 		>
-			<Title style={{transform: `scale(${scale})`}}>2.0</Title>
-			<Subtitle style={{opacity}}>with audio support</Subtitle>
+			<div
+				style={{
+					opacity: textOpacity,
+				}}
+			>
+				<Title style={{transform: `scale(${scale})`}}>2.0</Title>
+				<Subtitle style={{opacity}}>with audio support</Subtitle>
+			</div>
 		</div>
 	);
 };

@@ -1,6 +1,7 @@
 import React from 'react';
-import {Img} from 'remotion';
+import {AbsoluteFill, Img, interpolate, useCurrentFrame} from 'remotion';
 import styled from 'styled-components';
+import {Hype} from './Hype';
 import tweet from './tweet.png';
 
 const Container = styled.div`
@@ -16,14 +17,51 @@ const Tweet = styled(Img)`
 `;
 
 export const Intro: React.FC = () => {
+	const frame = useCurrentFrame();
+	const scale = interpolate(frame, [0, 190], [0.8, 1], {
+		extrapolateRight: 'clamp',
+	});
 	return (
 		<Container>
-			<Tweet
-				src={tweet}
+			<div style={{display: 'flex', flexDirection: 'column'}}>
+				<div style={{display: 'flex', flexDirection: 'row'}}>
+					<Hype />
+					<Hype />
+					<Hype />
+					<Hype />
+					<Hype />
+				</div>
+				<div style={{display: 'flex', flexDirection: 'row'}}>
+					<Hype />
+					<Hype />
+					<Hype />
+					<Hype />
+					<Hype />
+				</div>
+				<div style={{display: 'flex', flexDirection: 'row'}}>
+					<Hype />
+					<Hype />
+					<Hype />
+					<Hype />
+					<Hype />
+				</div>
+			</div>
+			<AbsoluteFill
 				style={{
-					borderRadius: 15,
+					flex: 1,
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'center',
 				}}
-			/>
+			>
+				<Tweet
+					src={tweet}
+					style={{
+						borderRadius: 15,
+						transform: `scale(${scale})`,
+					}}
+				/>
+			</AbsoluteFill>
 		</Container>
 	);
 };
