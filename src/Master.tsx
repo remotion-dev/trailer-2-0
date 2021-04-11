@@ -3,8 +3,10 @@ import {Audio, Sequence} from 'remotion';
 import {AudioDemo} from './AudioDemo';
 import {AudioFeatures} from './AudioFeatures';
 import {AUDIO_FEATURES_START} from './AudioVisualization';
+import {Contributors} from './Contributors';
 import {Intro} from './Intro';
 import {OtherFeatures} from './OtherFeatures';
+import {PreviousRelease} from './PreviousRelease';
 import {Showcase} from './Showcase';
 import {TwoPointOh} from './TwoPointOh';
 import voiceover from './voiceover.wav';
@@ -28,8 +30,14 @@ export const Master: React.FC = () => {
 			<Sequence from={AUDIO_FEATURES_START} durationInFrames={297}>
 				<AudioFeatures />
 			</Sequence>
-			<Sequence from={1200} durationInFrames={400}>
+			<Sequence from={1200} durationInFrames={300}>
 				<OtherFeatures />
+			</Sequence>
+			<Sequence from={1500} durationInFrames={150}>
+				<PreviousRelease />
+			</Sequence>
+			<Sequence from={1700} durationInFrames={150}>
+				<Contributors />
 			</Sequence>
 		</div>
 	);

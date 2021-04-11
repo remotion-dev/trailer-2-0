@@ -8,6 +8,7 @@ import {Cube} from './Cube';
 import {Intro} from './Intro';
 import {Master} from './Master';
 import {OtherFeatures} from './OtherFeatures';
+import {PreviousRelease} from './PreviousRelease';
 import {ResizableFull} from './ResizableFull';
 import {Showcase} from './Showcase';
 import voiceover from './voiceover.wav';
@@ -111,6 +112,14 @@ export const RemotionVideo: React.FC = () => {
 				fps={30}
 				width={400}
 				height={400}
+			/>
+			<Composition
+				id="previous-release"
+				component={PreviousRelease}
+				durationInFrames={300}
+				fps={30}
+				width={1920}
+				height={1080}
 			/>
 		</>
 	);
