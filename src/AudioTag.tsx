@@ -20,7 +20,7 @@ export const AudioTag: React.FC<{
 	trimRight: number;
 	offset: number;
 }> = ({seed, trimLeft, trimRight, offset}) => {
-	const randomBars = new Array(120)
+	const randomBars = new Array(60)
 		.fill(true)
 		.map((b, i) => random(`${i}-${seed}`));
 	const {width} = useVideoConfig();
@@ -45,9 +45,9 @@ export const AudioTag: React.FC<{
 					return (
 						<div
 							style={{
-								width: 6,
-								borderRadius: 2,
-								height: b * 100,
+								width: 8,
+								borderRadius: 4,
+								height: b * 80,
 								backgroundColor: 'rgba(255, 255, 255, 0.2)',
 								display: 'inline-block',
 								marginLeft: 2,
