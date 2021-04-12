@@ -1,11 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame, useVideoConfig, Video} from 'remotion';
 import styled from 'styled-components';
-import data from './res/data.mp4';
-import gatsby from './res/gatsby.mp4';
-import talk from './res/talk.mp4';
-import tiktok from './res/tiktok.mp4';
-import twitter from './res/twitter.mp4';
 
 const BigTitle = styled.div`
 	font-family: ---apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -47,15 +42,28 @@ export const Showcase: React.FC = () => {
 			<div style={{flex: 1, transform: `translateY(${translation}px)`}}>
 				<div>
 					<SectionTitle>Preview cards</SectionTitle> <br />
-					<Video muted style={{width: width / 3}} src={gatsby} />
+					<Video
+						muted
+						style={{width: width / 3}}
+						src="http://localhost:5000/gatsby.mp4"
+					/>
 				</div>
 				<div>
 					<SectionTitle>Conference talks</SectionTitle> <br />
-					<Video muted style={{width: width / 3}} src={talk} />
+					<Video
+						muted
+						style={{width: width / 3}}
+						src="http://localhost:5000/talk.mp4"
+					/>
 				</div>
 				<div>
 					<SectionTitle>Product videos</SectionTitle> <br />
-					<Video muted startAt={60} style={{width: width / 3}} src={data} />
+					<Video
+						muted
+						startAt={60}
+						style={{width: width / 3}}
+						src="http://localhost:5000/data.mp4"
+					/>
 				</div>
 				<div>
 					<SectionTitle>Personalized videos</SectionTitle> <br />
@@ -63,7 +71,7 @@ export const Showcase: React.FC = () => {
 						muted
 						startAt={120}
 						style={{height: height / 2}}
-						src={twitter}
+						src="http://localhost:5000/twitter.mp4"
 					/>
 				</div>
 				<div>
@@ -72,7 +80,7 @@ export const Showcase: React.FC = () => {
 						muted
 						startAt={180}
 						style={{height: height / 2}}
-						src={tiktok}
+						src="http://localhost:5000/tiktok.MP4"
 					/>
 				</div>
 			</div>

@@ -14,14 +14,13 @@ import {OtherFeatures} from './OtherFeatures';
 import {PreviousRelease} from './PreviousRelease';
 import {ResizableFull} from './ResizableFull';
 import {Showcase} from './Showcase';
-import voiceover from './voiceover.wav';
 
 export const RemotionVideo: React.FC = () => {
 	const [handle] = useState(() => delayRender());
 	const [length, setLength] = useState<number | null>(null);
 
 	useEffect(() => {
-		getAudioDuration(voiceover)
+		getAudioDuration('http://localhost:5000/voiceover.wav')
 			.then((l) => {
 				setLength(l);
 				continueRender(handle);

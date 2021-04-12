@@ -14,13 +14,12 @@ import radiostar from './radiostar.mp3';
 import {Showcase} from './Showcase';
 import {Transition} from './Transition';
 import {TwoPointOh} from './TwoPointOh';
-import voiceover from './voiceover.wav';
 
 export const Main: React.FC = () => {
 	const {durationInFrames} = useVideoConfig();
 	return (
 		<div>
-			<Audio src={voiceover} />
+			<Audio src="http://localhost:5000/voiceover.wav" />
 			<Sequence from={0} durationInFrames={190}>
 				<Intro />
 			</Sequence>
@@ -63,7 +62,10 @@ export const Main: React.FC = () => {
 					src={radiostar}
 					startAt={10}
 					volume={(f) =>
-						interpolate(f, [30, 150], [0, 1], {extrapolateLeft: 'clamp'})
+						interpolate(f, [30, 150], [0, 1], {
+							extrapolateLeft: 'clamp',
+							extrapolateRight: 'clamp',
+						})
 					}
 				/>
 			</Sequence>
