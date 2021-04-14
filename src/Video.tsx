@@ -14,6 +14,7 @@ import {OtherFeatures} from './OtherFeatures';
 import {PreviousRelease} from './PreviousRelease';
 import {ResizableFull} from './ResizableFull';
 import {Showcase} from './Showcase';
+import {Thumbnail} from './Thumbnail';
 
 export const RemotionVideo: React.FC = () => {
 	const [handle] = useState(() => delayRender());
@@ -138,6 +139,14 @@ export const RemotionVideo: React.FC = () => {
 				fps={30}
 				width={400}
 				height={400}
+			/>
+			<Composition
+				id="thumbnail"
+				component={Thumbnail}
+				durationInFrames={300}
+				fps={30}
+				width={1920}
+				height={1080}
 			/>
 		</>
 	);

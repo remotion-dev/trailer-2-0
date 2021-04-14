@@ -32,7 +32,7 @@ export const TestsAdded: React.FC = () => {
 				<CheckCheckerboard />
 			</AbsoluteFill>
 			<Title>
-				<div style={{fontWeight: 800}}>150</div>
+				<div style={{fontWeight: 800}}>170</div>
 				<div style={{fontSize: 40}}>tests added</div>
 			</Title>
 		</Card>

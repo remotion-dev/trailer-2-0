@@ -12,6 +12,7 @@ export const CheckCheckerboard: React.FC = () => {
 				.map((check) => {
 					return (
 						<div
+							key={check}
 							style={{
 								height: 28,
 								width: 10000,
@@ -20,9 +21,10 @@ export const CheckCheckerboard: React.FC = () => {
 							{new Array(20)
 								.fill(true)
 								.map((_, i) => i)
-								.map((check) => {
+								.map((c) => {
 									return (
 										<CheckIcon
+											key={c}
 											style={{
 												color: 'white',
 												opacity: 0.2,

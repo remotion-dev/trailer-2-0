@@ -32,7 +32,7 @@ const getAll = () => {
 	return Promise.all(
 		[1, 2, 3, 4, 5, 6].map((_, i) => {
 			return fetch(
-				`https://api.github.com/repos/JonnyBurger/remotion/compare/v1.0.6...main?page=${_}`,
+				`https://api.github.com/repos/JonnyBurger/remotion/compare/v1.0.6...ee8ed551e5479399e1539c7990f4041a879c105f?page=${_}`,
 				{
 					headers: {
 						authorization: `token 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`,
