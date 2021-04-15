@@ -1,3 +1,7 @@
+## [Watch the video](https://youtu.be/0r6ho5sNPm4)
+
+Source code for the Remotion 2.0 trailer.
+
 # Remotion video
 
 <p align="center">
