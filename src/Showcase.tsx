@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import data from './res/data.mp4';
 import gatsby from './res/gatsby.mp4';
 import talk from './res/talk.mp4';
-import tiktok from './res/tiktok.mp4';
+import tiktok from './res/tik-tok.mp4';
 import twitter from './res/twitter.mp4';
 
 const BigTitle = styled.div`
