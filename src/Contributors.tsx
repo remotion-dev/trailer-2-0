@@ -26,14 +26,14 @@ const Title = styled.div`
 `;
 
 // const GITHUB_TOKEN = 'ghp_XXXXXXXX'
-const GITHUB_TOKEN = null;
+const GITHUB_TOKEN: string | null = null;
 
 const getAll = () => {
 	if (cache) {
 		return Promise.resolve(cache as any[]);
 	}
 	return Promise.all(
-		[1, 2, 3, 4, 5, 6].map((_, i) => {
+		[1, 2, 3, 4, 5, 6].map((_) => {
 			return fetch(
 				`https://api.github.com/repos/JonnyBurger/remotion/compare/v1.0.6...ee8ed551e5479399e1539c7990f4041a879c105f?page=${_}`,
 				GITHUB_TOKEN
