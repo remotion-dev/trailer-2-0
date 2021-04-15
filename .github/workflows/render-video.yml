@@ -1,14 +1,4 @@
-on:
-  workflow_dispatch:
-    inputs:
-      titleText:
-        description: "Which text should it say?"
-        required: true
-        default: "Welcome to Remotion"
-      titleColor:
-        description: "Which color should it be in?"
-        required: true
-        default: "black"
+on: push
 name: Render video
 jobs:
   render:
