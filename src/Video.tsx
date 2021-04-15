@@ -12,6 +12,7 @@ import {Intro} from './Intro';
 import {Main} from './Main';
 import {OtherFeatures} from './OtherFeatures';
 import {PreviousRelease} from './PreviousRelease';
+import voiceover from './res/voiceover.wav';
 import {ResizableFull} from './ResizableFull';
 import {Showcase} from './Showcase';
 import {Thumbnail} from './Thumbnail';
@@ -21,7 +22,7 @@ export const RemotionVideo: React.FC = () => {
 	const [length, setLength] = useState<number | null>(null);
 
 	useEffect(() => {
-		getAudioDuration('http://localhost:5000/voiceover.wav')
+		getAudioDuration(voiceover)
 			.then((l) => {
 				setLength(l);
 				continueRender(handle);

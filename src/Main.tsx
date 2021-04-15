@@ -1,16 +1,15 @@
 import React from 'react';
-import {Audio, interpolate, Sequence, useVideoConfig} from 'remotion';
+import {Audio, Sequence, useVideoConfig} from 'remotion';
 import {AudioDemo} from './AudioDemo';
 import {AudioFeatures} from './AudioFeatures';
 import {AUDIO_FEATURES_START} from './AudioVisualization';
 import {Contributors} from './Contributors';
 import {EndCard} from './EndCard';
-import {END_CARD_LENGTH} from './EndCardLength';
 import {Install} from './Install';
 import {Intro} from './Intro';
 import {OtherFeatures} from './OtherFeatures';
 import {PreviousRelease} from './PreviousRelease';
-import radiostar from './radiostar.mp3';
+import voiceover from './res/voiceover.wav';
 import {Showcase} from './Showcase';
 import {Transition} from './Transition';
 import {TwoPointOh} from './TwoPointOh';
@@ -19,7 +18,7 @@ export const Main: React.FC = () => {
 	const {durationInFrames} = useVideoConfig();
 	return (
 		<div>
-			<Audio src="http://localhost:5000/voiceover.wav" />
+			<Audio src={voiceover} />
 			<Sequence from={0} durationInFrames={190}>
 				<Intro />
 			</Sequence>
@@ -54,6 +53,9 @@ export const Main: React.FC = () => {
 			<Sequence from={2220} durationInFrames={300}>
 				<EndCard />
 			</Sequence>
+			{/**
+			 * 
+			 * // Removed outro music because it is copyrighted.
 			<Sequence
 				from={durationInFrames - END_CARD_LENGTH - 150}
 				durationInFrames={END_CARD_LENGTH + 150}
@@ -69,6 +71,7 @@ export const Main: React.FC = () => {
 					}
 				/>
 			</Sequence>
+						*/}
 		</div>
 	);
 };

@@ -2,6 +2,7 @@ import {useAudioData, visualizeAudio} from '@remotion/media-utils';
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import styled from 'styled-components';
+import voiceover from './res/voiceover.wav';
 
 const Title = styled.div`
 	font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -25,7 +26,7 @@ export const AUDIO_FEATURES_START = 933;
 export const AudioVisualization: React.FC = () => {
 	const {fps} = useVideoConfig();
 	const frame = useCurrentFrame();
-	const audio = useAudioData('http://localhost:5000/voiceover.wav');
+	const audio = useAudioData(voiceover);
 
 	if (!audio) {
 		return null;
