@@ -23,7 +23,7 @@ export const Interpolate: React.FC = () => {
 		<Card>
 			<Title>
 				interpolate()
-				<div style={{fontSize: 35}}>for n>2 points</div>
+				<div style={{fontSize: 35}}>for n{'>'}2 points</div>
 			</Title>
 		</Card>
 	);
